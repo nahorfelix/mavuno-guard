@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8faf7;
+  color: #1a1a1a;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Global component styles */
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium bg-green-primary text-white hover:bg-green-600 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-medium border border-green-primary text-green-primary hover:bg-green-50 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-lg p-6 shadow-card;
+  }
+
+  .text-muted {
+    @apply text-text-muted;
+  }
+}
