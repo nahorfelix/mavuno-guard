@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'warning' | 'danger' | 'success';
+  variant?: 'default' | 'warning' | 'danger' | 'success' | 'primary' | 'secondary' | 'ghost';
   children: React.ReactNode;
 }
 
@@ -12,6 +12,9 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       warning: 'bg-yellow-100 text-gold',
       danger: 'bg-red-100 text-alert',
       success: 'bg-green-100 text-green-primary',
+      primary: 'bg-green-primary text-white',
+      secondary: 'bg-gray-200 text-forest',
+      ghost: 'bg-transparent text-forest border border-forest',
     };
 
     return (
