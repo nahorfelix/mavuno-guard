@@ -11,7 +11,7 @@ export default function Dashboard() {
         {/* Page Header */}
         <div>
           <h2 className="text-3xl font-bold text-forest">Dashboard</h2>
-          <p className="text-text-muted mt-2">Monitor your farm's weather and risk status in real-time</p>
+          <p className="text-text-muted mt-2">Monitor your farm&apos;s weather and risk status in real-time</p>
         </div>
 
         {/* Current Status Cards */}
