@@ -3,6 +3,11 @@ import { Cloud, TreePine, Zap, AlertCircle, BarChart3, Leaf } from 'lucide-react
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
+const ctaBase =
+  'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-primary px-6 py-3 text-lg w-full sm:w-auto';
+const ctaPrimary = `${ctaBase} bg-green-primary text-white hover:bg-green-600`;
+const ctaSecondary = `${ctaBase} border border-green-primary text-green-primary hover:bg-green-50`;
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-forest via-cloud-white to-green-fresh">
@@ -27,23 +32,21 @@ export default function Home() {
           <h1 className="text-6xl md:text-7xl font-bold text-forest mb-6 leading-tight">
             Farm Risk Intelligence
           </h1>
-          <p className="text-2xl md:text-3xl text-text-muted mb-8">
+          <p className="text-2xl md:text-3xl font-medium text-slate-700 mb-8">
             Weather, trees, and field operations at your fingertips
           </p>
-          <p className="text-lg text-text-muted max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-12 leading-relaxed">
             Mavuno Guard helps farmers, cooperatives, and agricultural officers turn WeatherAI forecasts and canopy data into practical field decisions—when to spray, irrigate, or hold off because conditions are risky.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href="/dashboard">
-              <Button size="lg" className="w-full sm:w-auto">
-                Enter Dashboard
-              </Button>
+            <Link href="/dashboard" className={ctaPrimary}>
+              Enter Dashboard
             </Link>
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Learn More
-            </Button>
+            <Link href="/docs" className={ctaSecondary}>
+              View Developer Notes
+            </Link>
           </div>
         </div>
       </section>

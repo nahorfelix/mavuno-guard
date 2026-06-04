@@ -80,11 +80,12 @@ export default function DocsPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-text-muted">Developer notes</p>
           <h1 className="mt-2 text-3xl font-bold text-forest">Mavuno Guard Developer Notes</h1>
           <p className="mt-3 text-text-muted">
-            How this project consumes WeatherAI APIs and turns that data into farm operations decisions.
+            How Mavuno Guard consumes WeatherAI APIs and turns weather, quota, and canopy data into farm operation
+            decisions.
           </p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <Badge variant="primary">WeatherAI integration</Badge>
-            <Badge variant="success">Server-side proxy</Badge>
+            <Badge variant="success">API key protected</Badge>
           </div>
         </div>
 

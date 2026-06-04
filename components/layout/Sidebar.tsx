@@ -10,7 +10,7 @@ const navItems = [
   { href: '/trees', label: 'Trees & Canopy', icon: TreePine },
   { href: '/alerts', label: 'Alerts', icon: AlertCircle },
   { href: '/operations', label: 'Operations', icon: Settings },
-  { href: '/docs', label: 'Docs', icon: FileText },
+  { href: '/docs', label: 'Dev Notes', icon: FileText },
 ];
 
 export const Sidebar = () => {
