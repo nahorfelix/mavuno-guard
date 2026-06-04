@@ -124,7 +124,7 @@ export class WeatherAIClient {
   ): Promise<WeatherAIResponse<T>> {
     const url = this.buildUrl(endpoint, query);
     const hasFormData = body instanceof FormData;
-    const headers = this.buildHeaders(hasFormData ? '' : 'application/json');
+    const headers = this.buildHeaders(hasFormData ? undefined : 'application/json');
 
     const response = await fetch(url, {
       method,
