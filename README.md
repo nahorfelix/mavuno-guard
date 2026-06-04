@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Repository** | [github.com/nahorfelix/mavuno-guard](https://github.com/nahorfelix/mavuno-guard) |
-| **Live demo** | _Add your Vercel URL after deploy_ |
+| **Live demo** | [mavuno-guard.vercel.app](https://mavuno-guard.vercel.app) |
 
 ---
 
