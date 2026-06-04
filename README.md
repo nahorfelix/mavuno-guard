@@ -170,20 +170,6 @@ WEATHER_AI_API_KEY=wai_your_api_key_here
 
 ---
 
-## Deployment to Vercel
-
-1. Push `main` to GitHub.
-2. Import [nahorfelix/mavuno-guard](https://github.com/nahorfelix/mavuno-guard) in Vercel.
-3. Framework: Next.js (auto-detected).
-4. Add environment variable `WEATHER_AI_API_KEY` with your production key.
-5. Deploy.
-6. Smoke test `/api/health/weather-ai` and `/dashboard` on the production URL.
-7. Paste the Vercel URL into the **Live demo** line at the top of this README.
-
-Do not upload `.env.local` to the repository.
-
----
-
 ## Testing checklist
 
 | URL | Check |
@@ -216,31 +202,6 @@ Do not upload `.env.local` to the repository.
 - Webhook and SMS delivery when the plan supports them
 - Seasonal analytics and historical comparisons
 - Offline-friendly views for low-connectivity fields
-
----
-
-## Suggested demo walkthrough (~2 minutes)
-
-1. `/` — what the product covers and who it is for  
-2. `/dashboard` — weather + risk + recommendations  
-3. `/planner` — operation windows and hourly trend  
-4. `/trees` — canopy workflow and quota  
-5. `/alerts` — rule creation and triggered vs ready previews  
-6. `/operations` — plan, usage, health, integration matrix  
-7. `/docs` — how WeatherAI is wired and secured  
-
----
-
-## Screenshots
-
-Add before final review (optional paths):
-
-- `docs/screenshots/landing.png`
-- `docs/screenshots/dashboard.png`
-- `docs/screenshots/planner.png`
-- `docs/screenshots/trees.png`
-- `docs/screenshots/alerts.png`
-- `docs/screenshots/operations.png`
 
 ---
 
