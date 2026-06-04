@@ -7,7 +7,6 @@ export async function GET() {
   const hasConfiguredKey = isWeatherAIConfigured();
   const apiKeyValue = process.env.WEATHER_AI_API_KEY || '';
 
-  // Determine configuration status
   const keyExists = !!apiKeyValue;
   const keyIsValid = hasConfiguredKey;
   const keyIsExample = apiKeyValue === 'wai_your_api_key_here';
@@ -15,7 +14,6 @@ export async function GET() {
     apiKeyValue.includes('PASTE_YOUR_REAL_WEATHERAI_KEY_HERE');
   const keyHasCorrectFormat = apiKeyValue.startsWith('wai_');
 
-  // Try to reach WeatherAI if configured
   let weatherAIReachable = false;
   let weatherAIStatus: number | null = null;
   let weatherAIError: string | null = null;

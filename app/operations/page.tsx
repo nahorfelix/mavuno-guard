@@ -56,7 +56,18 @@ export default function OperationsPage() {
       const healthResult = await fetchApi('/api/health/weather-ai');
       healthJson = healthResult.json;
       if (!healthResult.response.ok) {
-        errors.health = healthResult.json?.error?.message || 'Health check failed.';
+        const errBody = healthResult.json as Record<string, unknown> | undefined;
+        const nestedErr =
+          errBody?.error && typeof errBody.error === 'object'
+            ? (errBody.error as Record<string, unknown>).message
+            : undefined;
+        const errMessage =
+          (typeof nestedErr === 'string' && nestedErr) ||
+          (typeof errBody?.message === 'string' && errBody.message) ||
+          '';
+        errors.health =
+          errMessage ||
+          `Health check failed (HTTP ${healthResult.response.status}). Try restarting the dev server (delete .next, then npm run dev).`;
       }
     } catch {
       errors.health = 'Unable to reach /api/health/weather-ai.';
@@ -87,7 +98,12 @@ export default function OperationsPage() {
     }
 
     try {
-      setSnapshot(buildOperationsSnapshot(healthJson, usageJson, treeQuotaJson, errors));
+      const nextSnapshot = buildOperationsSnapshot(healthJson, usageJson, treeQuotaJson, errors);
+      if (!nextSnapshot.health && !errors.health) {
+        errors.health =
+          'Health check did not return valid data. Restart the dev server: remove .next, then run npm run dev.';
+      }
+      setSnapshot({ ...nextSnapshot, errors });
     } catch {
       errors.snapshot = 'Failed to process operations data.';
       setSnapshot({ ...emptySnapshot(), errors });
@@ -104,7 +120,7 @@ export default function OperationsPage() {
 
   const planLabel = inferPlanLabel(snapshot.usage, snapshot.health);
   const modeLabel = snapshot.demoMode ? 'Demo mode' : 'Live API';
-  const showLoading = mounted && loading;
+  const showLoading = !mounted || loading;
 
   return (
     <DashboardLayout>

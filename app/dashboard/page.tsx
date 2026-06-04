@@ -48,7 +48,6 @@ export default function DashboardPage() {
   const [weatherError, setWeatherError] = useState<string>();
   const [usageError, setUsageError] = useState<string>();
 
-  // Fetch data on mount
   useEffect(() => {
     const fetchDashboardData = async () => {
       setIsLoading(true);
@@ -58,7 +57,6 @@ export default function DashboardPage() {
       let newUsageData: NormalizedUsageData | null = null;
 
       try {
-        // Fetch current weather and forecast
         const weatherRes = await fetch('/api/weather/current?ai=true');
         const weatherJson = await weatherRes.json();
 
@@ -87,7 +85,6 @@ export default function DashboardPage() {
       }
 
       try {
-        // Fetch usage
         const usageRes = await fetch('/api/usage');
         const usageJson = await usageRes.json();
 
@@ -122,7 +119,6 @@ export default function DashboardPage() {
         errors,
       });
 
-      // Calculate risk and recommendations if weather data is available
       if (newWeatherData?.current) {
         const risk = calculateRiskScore({
           temperature: newWeatherData.current.temperature,

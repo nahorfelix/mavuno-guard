@@ -9,7 +9,7 @@ const pageTitles: Record<string, string> = {
   '/trees': 'Tree & Canopy Lab',
   '/alerts': 'Alert Center',
   '/operations': 'Operations',
-  '/docs': 'Documentation',
+  '/docs': 'Developer Notes',
 };
 
 export const Header = () => {

@@ -19,6 +19,10 @@
 # misc
 .DS_Store
 *.pem
+ops-page.html
+
+# local debug / scratch
+*.log.local
 
 # debug
 npm-debug.log*

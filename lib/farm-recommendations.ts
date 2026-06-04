@@ -1,13 +1,7 @@
-/**
- * Farm Recommendations Engine
- * Converts weather conditions into actionable farm operations
- */
+// Field recommendations translate weather readings into practical farm actions.
 
 import type { FarmRecommendation, NormalizedWeatherData } from '@/types/dashboard';
 
-/**
- * Generate farm recommendations based on current and forecast weather
- */
 export const generateFarmRecommendations = (
   weatherData: NormalizedWeatherData | null
 ): FarmRecommendation[] => {

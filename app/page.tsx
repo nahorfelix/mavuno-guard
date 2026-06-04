@@ -31,7 +31,7 @@ export default function Home() {
             Weather, trees, and field operations at your fingertips
           </p>
           <p className="text-lg text-text-muted max-w-2xl mx-auto mb-12">
-            Mavuno Guard empowers farmers, cooperatives, and agricultural officers with AI-driven insights on weather patterns, crop health, and field operations to make smarter decisions and protect harvests.
+            Mavuno Guard helps farmers, cooperatives, and agricultural officers turn WeatherAI forecasts and canopy data into practical field decisions—when to spray, irrigate, or hold off because conditions are risky.
           </p>
 
           {/* CTA Buttons */}
@@ -85,7 +85,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-forest mb-2">Risk Scoring</h3>
               <p className="text-text-muted">
-                AI-powered farm risk assessment to identify threats and protect your harvest.
+                Weather-based farm risk scoring to flag threats before they hit the harvest.
               </p>
             </Card>
 

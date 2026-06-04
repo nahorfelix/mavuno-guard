@@ -1,3 +1,5 @@
+// Normalize usage, health, and quota payloads for the operations dashboard.
+
 import { normalizeTreeQuotaResponse } from '@/lib/tree-normalizer';
 import type {
   ApiHealthModel,
@@ -96,6 +98,15 @@ export const normalizeOperationsHealth = (response: unknown): NormalizedOperatio
   if (!response || typeof response !== 'object') return null;
 
   const record = response as Record<string, unknown>;
+
+  // Ignore Next.js error page payloads (e.g. corrupted .next / 500 responses)
+  if ('props' in record && record.props && typeof record.props === 'object') {
+    return null;
+  }
+  if (!('configuration' in record) && !('weatherAI' in record)) {
+    return null;
+  }
+
   const configuration = (record.configuration ?? {}) as Record<string, unknown>;
   const weatherAI = (record.weatherAI ?? {}) as Record<string, unknown>;
 
@@ -312,7 +323,7 @@ export const buildQuotaCards = (
     locked: false,
     note: usage?.demoMode
       ? 'Demo AI quota preview.'
-      : `${usage?.aiRequestsLimit ?? 0} AI-assisted requests per billing period.`,
+      : `${usage?.aiRequestsLimit ?? 0} WeatherAI-assisted requests per billing period.`,
   };
 
   const treeLocked = !treeQuota.supported;

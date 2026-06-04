@@ -1,7 +1,4 @@
-/**
- * Farm Risk Engine
- * Calculates agricultural risk scores based on weather conditions
- */
+// Weighted risk scoring from current weather readings for the command center.
 
 import type { RiskScore } from '@/types/dashboard';
 

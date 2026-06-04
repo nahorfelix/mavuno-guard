@@ -1,3 +1,5 @@
+// Keep WeatherAI calls on the server so the API key is never exposed to the browser.
+
 export type WeatherAIRequestQuery = Record<string, string | number | boolean>;
 
 export type WeatherAIResponse<T> = {
@@ -25,7 +27,6 @@ export class WeatherAIError extends Error {
 const BASE_URL = 'https://api.weather-ai.co';
 const API_KEY = process.env.WEATHER_AI_API_KEY;
 
-// Validate if the API key is properly configured
 const isKeyValid = (): boolean => {
   if (!API_KEY) return false;
   if (API_KEY === 'wai_your_api_key_here') return false;

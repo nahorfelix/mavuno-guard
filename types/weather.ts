@@ -38,24 +38,7 @@ export type ApiErrorResponse = {
   [key: string]: unknown;
 };
 
-/**
- * PHASE 3 NOTE: API Response Shape Handler
- *
- * WeatherAI routes return responses with two possible shapes:
- *
- * 1. Real WeatherAI (when WEATHER_AI_API_KEY is configured and valid):
- *    { payload: T, meta: { status: number, rateLimit: {...} } }
- *
- * 2. Demo fallback (when key is missing or placeholder):
- *    { demoMode: true, message: string, data: T }
- *
- * Dashboard components should check for demoMode first, then safely
- * access response.payload?.location or response.data?.location.
- *
- * Example safe access pattern for Phase 3:
- *    const isDemoMode = response.demoMode === true;
- *    const weatherData = isDemoMode ? response.data : response.payload;
- */
+/** Live routes use `payload`; demo fallbacks use `data` when no API key is configured. */
 export type WeatherAPIResponse<T> = 
   | { demoMode: true; message: string; data: T }
   | { payload: T; meta: { status: number; rateLimit: Record<string, unknown> } };

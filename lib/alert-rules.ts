@@ -1,3 +1,5 @@
+// Plan-aware states prevent the UI from pretending locked WeatherAI features are available.
+
 import type {
   AlertPreview,
   AlertRule,

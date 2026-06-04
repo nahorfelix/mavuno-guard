@@ -1,8 +1,4 @@
-/**
- * Weather Normalizer
- * Converts different API response shapes to a consistent format
- * Safely handles both real API (payload) and demo (data) responses
- */
+// Normalize live and demo responses into one shape so UI components stay stable.
 
 import type { NormalizedWeatherData } from '@/types/dashboard';
 
@@ -13,7 +9,6 @@ export const normalizeWeatherResponse = (
     return null;
   }
 
-  // Determine if demo mode and extract the data
   const demoMode = response.demoMode === true;
   const weatherData = demoMode ? response.data : response.payload;
 
@@ -21,7 +16,6 @@ export const normalizeWeatherResponse = (
     return null;
   }
 
-  // Safely extract location data
   const location = weatherData.location || {};
   const normalizedLocation = {
     name: location.name || 'Unknown Location',
@@ -31,7 +25,6 @@ export const normalizeWeatherResponse = (
     lon: Number(location.lon) || 0,
   };
 
-  // Safely extract current weather
   const current = weatherData.current || {};
   const normalizedCurrent = {
     temperature: Number(current.temperature) || 0,
@@ -43,7 +36,6 @@ export const normalizeWeatherResponse = (
     precipitation: Number(current.precipitation) || 0,
   };
 
-  // Extract forecast from multiple possible fields
   let forecastArray: Array<any> = [];
 
   if (Array.isArray(weatherData.forecast)) {

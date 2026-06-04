@@ -1,3 +1,5 @@
+// Map upstream WeatherAI status codes to stable messages for UI and API routes.
+
 export type WeatherAIErrorMapping = {
   status: number;
   code: string;
